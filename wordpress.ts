@@ -12,12 +12,12 @@ export enum PostStatus{
 }
 
 export type wordpressPost = {
-    title: string,
+    title?: string,
     content: string,
-    authorId: number,
+    author?: number,
     status: PostStatus
-    categories: string[] | null,
-    tags: string[] | null,
+    categories?: string[],
+    tags?: string[],
 }
 
 
@@ -26,7 +26,7 @@ export const postToWordpress = async (post: wordpressPost) => {
 
     const url = config.SITE_URL + '/wp-json/wp/v2/posts';
 
-    const authorization = "Basic " + "MinhAPI:" + process.env.WORDPRESS_APP_PASSWORD;
+    const authorization = "Basic " + process.env.WORDPRESS_APP_USERNAME + ":" + process.env.WORDPRESS_APP_PASSWORD;
 
     return await axios.post(url, post, {
         headers: {

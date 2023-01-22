@@ -1,0 +1,12 @@
+# Secrets
+.env
+
+# IDE files
+.vscode
+.idea
+
+# Misc. local data
+tweets.json
+
+# Node
+node_modules

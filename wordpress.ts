@@ -20,13 +20,17 @@ export type WordpressPost = {
     tags?: string[],
 }
 
+export const getWordpressAuthFromEnv = () => {
+    return "Basic " + process.env.WORDPRESS_APP_USERNAME + ":" + process.env.WORDPRESS_APP_PASSWORD;
+}
 
-export const postToWordpress = async (post: WordpressPost) => {
+
+export const postToWordpress = async (post: WordpressPost): Promise<string> => {
     // Make a post to WordPress with data, getting the app token from the environment
 
     const url = config.SITE_URL + '/wp-json/wp/v2/posts';
 
-    const authorization = "Basic " + process.env.WORDPRESS_APP_USERNAME + ":" + process.env.WORDPRESS_APP_PASSWORD;
+    const authorization = getWordpressAuthFromEnv();
 
     return await axios.post(url, post, {
         headers: {

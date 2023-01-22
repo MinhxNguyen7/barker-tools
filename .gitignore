@@ -10,3 +10,9 @@ tweets.json
 
 # Node
 node_modules
+
+#temporary files
+temp.*
+temp
+tmp
+tmp.*

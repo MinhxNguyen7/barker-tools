@@ -1,7 +1,7 @@
-import { wordpressPost, postToWordpress, PostStatus } from "./wordpress";
+import { WordpressPost, postToWordpress, PostStatus } from "./wordpress";
 import { AxiosError, AxiosResponse} from "axios";
 
-const post: wordpressPost = {
+const post: WordpressPost = {
     title: "Hello World",
     content: "This is a test post through the API",
     author: 3,

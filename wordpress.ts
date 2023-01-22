@@ -11,7 +11,7 @@ export enum PostStatus{
     PRIVATE = "private"
 }
 
-export type wordpressPost = {
+export type WordpressPost = {
     title?: string,
     content: string,
     author?: number,
@@ -21,7 +21,7 @@ export type wordpressPost = {
 }
 
 
-export const postToWordpress = async (post: wordpressPost) => {
+export const postToWordpress = async (post: WordpressPost) => {
     // Make a post to WordPress with data, getting the app token from the environment
 
     const url = config.SITE_URL + '/wp-json/wp/v2/posts';

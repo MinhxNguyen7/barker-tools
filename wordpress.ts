@@ -39,3 +39,18 @@ export const postToWordpress = async (post: WordpressPost): Promise<string> => {
         }
     })
 }
+
+export const getWordpressPost = async (id: number) => {
+    // Get a post from WordPress by ID
+
+    const url = config.SITE_URL + '/wp-json/wp/v2/posts/' + id;
+
+    const authorization = getWordpressAuthFromEnv();
+
+    return await axios.get(url, {
+        headers: {
+            "Authorization": authorization,
+            "content-type": "application/json",
+        }
+    })
+}

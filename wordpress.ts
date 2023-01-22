@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosError, AxiosResponse} from 'axios';
 import config from "./config.json";
 import dotenv from "dotenv";
 
@@ -25,7 +25,7 @@ export const getWordpressAuthFromEnv = () => {
 }
 
 
-export const postToWordpress = async (post: WordpressPost): Promise<string> => {
+export const postToWordpress = async (post: WordpressPost): Promise<AxiosResponse|AxiosError> => {
     // Make a post to WordPress with data, getting the app token from the environment
 
     const url = config.SITE_URL + '/wp-json/wp/v2/posts';
@@ -54,3 +54,4 @@ export const getWordpressPost = async (id: number) => {
         }
     })
 }
+
